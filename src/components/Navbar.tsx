@@ -36,9 +36,8 @@ const Navbar = () => {
       )}
     >
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-display text-lg font-bold tracking-tight">
-          <img src={logo} alt="Prabesh Tamang logo" className="h-8 w-8" />
-          Prabesh<span className="text-primary">.</span>
+        <Link to="/" className="flex items-center" aria-label="Prabesh Tamang">
+          <img src={logo} alt="Prabesh Tamang logo" className="h-12 w-12" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
