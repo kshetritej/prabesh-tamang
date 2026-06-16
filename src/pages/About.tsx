@@ -1,81 +1,123 @@
+import { motion } from "framer-motion";
 import Layout from "@/components/Layout";
 import SectionHeading from "@/components/SectionHeading";
-import { CheckCircle2 } from "lucide-react";
+import portrait from "@/assets/prabesh-portrait.jpg";
+import gNature from "@/assets/g-nature.jpg";
+import gCulture from "@/assets/g-culture.jpg";
+import gLakeside from "@/assets/g-lakeside.jpg";
+import { Languages, Heart, MapPin } from "lucide-react";
 
 const timeline = [
-  { year: "2024 — Present", title: "Independent SEO & Content Consultant", desc: "Helping startups and editorial brands grow organically through search-first content systems." },
-  { year: "2022 — 2024", title: "SEO & Content Lead", desc: "Owned organic strategy across multiple verticals — from technical audits to topic clusters and editorial calendars." },
-  { year: "2020 — 2022", title: "IT Specialist & Web Developer", desc: "Built and maintained WordPress sites, managed hosting, and optimized for performance and security." },
-  { year: "2018 — 2020", title: "Foundations in IT", desc: "Studied computing fundamentals, networking, and web technologies. First freelance writing gigs." },
+  { year: "1996", title: "Born in Pokhara", body: "Grew up between Phewa Lake and the Annapurna foothills." },
+  { year: "2012", title: "First international friend", body: "Met a backpacker who got lost near my school. We're still in touch." },
+  { year: "2018", title: "Started guiding informally", body: "Friends-of-friends started visiting. I'd show them around — for free, for fun." },
+  { year: "2024", title: "Your Pokhara Friend", body: "Made it official. Same warmth, same coffee, just a name now." },
 ];
 
-const competencies = [
-  { title: "Technical SEO", points: ["Crawl & indexation audits", "Schema markup & structured data", "Core Web Vitals & performance", "Internal linking architecture"] },
-  { title: "Content Strategy", points: ["Topic clusters & pillar pages", "Search intent mapping", "Editorial calendars", "E-E-A-T optimization"] },
-  { title: "IT & Web", points: ["WordPress development", "Hosting & DNS management", "Security & backups", "Analytics setup (GA4, GSC)"] },
-];
-
-const About = () => {
-  return (
-    <Layout>
-      <section className="container py-20 md:py-28">
-        <div className="max-w-4xl">
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-primary mb-6">About</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold tracking-tight leading-[1.05]">
-            A kinetic polymath at the intersection of <span className="text-gradient">search, story, and systems.</span>
+const About = () => (
+  <Layout>
+    <section className="py-20 md:py-28">
+      <div className="container grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">About</p>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02]">
+            A friend, <em className="text-accent not-italic">first.</em><br />A guide, second.
           </h1>
-          <p className="mt-8 text-lg text-muted-foreground leading-relaxed max-w-2xl">
-            I'm Prabesh — I write, I optimize, I build. Over the years I've worn many hats, and I've learned that the best digital experiences happen when content, technology, and strategy speak the same language.
+          <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            I'm Prabesh — born and raised in Pokhara. My favorite thing in the world is sharing my city
+            with people who are curious, kind, and a little nervous about being so far from home.
           </p>
         </div>
-      </section>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-elevated"
+        >
+          <img src={portrait} alt="Prabesh portrait" className="h-full w-full object-cover" loading="lazy" />
+        </motion.div>
+      </div>
+    </section>
 
-      {/* Timeline */}
-      <section className="container py-16 md:py-24">
-        <SectionHeading eyebrow="Journey" title="A non-linear path." />
-        <div className="mt-14 relative">
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
-          <div className="space-y-12">
-            {timeline.map((t, i) => (
-              <div
-                key={t.year}
-                className={`relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-12 ${
-                  i % 2 === 0 ? "" : "md:[&>div:first-child]:col-start-2"
-                }`}
-              >
-                <div className="absolute left-4 md:left-1/2 w-3 h-3 rounded-full bg-primary -translate-x-1/2 mt-2 ring-4 ring-background" />
-                <div className={i % 2 === 0 ? "md:text-right md:pr-8" : "md:pl-8"}>
-                  <p className="text-xs font-semibold tracking-[0.15em] uppercase text-primary mb-2">{t.year}</p>
-                  <h3 className="font-display text-xl font-semibold mb-2">{t.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
-                </div>
+    <section className="py-20 bg-beige/40">
+      <div className="container max-w-3xl">
+        <SectionHeading eyebrow="My Story" title={<>The short <em className="text-accent not-italic">version.</em></>} />
+        <div className="mt-14 space-y-10">
+          {timeline.map((t, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="grid grid-cols-[80px_1fr] gap-6 items-start border-l-2 border-accent/30 pl-6 relative"
+            >
+              <div className="absolute -left-[7px] top-2 h-3 w-3 rounded-full bg-accent" />
+              <div className="font-display text-xl text-accent font-medium">{t.year}</div>
+              <div>
+                <h3 className="font-display text-2xl mb-2">{t.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{t.body}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Competencies */}
-      <section className="container py-20 md:py-28">
-        <SectionHeading eyebrow="Competencies" title="Detailed skill breakdown." />
-        <div className="mt-14 grid gap-6 md:grid-cols-3">
-          {competencies.map((c) => (
-            <div key={c.title} className="bg-card border border-border rounded-2xl p-6 md:p-8 shadow-card">
-              <h3 className="font-display text-xl font-semibold mb-5">{c.title}</h3>
-              <ul className="space-y-3">
-                {c.points.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <CheckCircle2 className="h-4 w-4 text-secondary mt-0.5 shrink-0" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
-    </Layout>
-  );
-};
+      </div>
+    </section>
+
+    <section className="py-20">
+      <div className="container grid md:grid-cols-3 gap-6">
+        <div className="bg-card rounded-3xl p-8 shadow-soft border border-border/50">
+          <Heart className="h-8 w-8 text-accent mb-4" />
+          <h3 className="font-display text-2xl mb-3">Fun facts</h3>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            <li>· Drinks more chiya than water</li>
+            <li>· Has paddled Phewa Lake 1,000+ times</li>
+            <li>· Loves hosting first-timers most</li>
+            <li>· Can spot Machhapuchhre through mist</li>
+          </ul>
+        </div>
+        <div className="bg-card rounded-3xl p-8 shadow-soft border border-border/50">
+          <Languages className="h-8 w-8 text-accent mb-4" />
+          <h3 className="font-display text-2xl mb-3">Languages</h3>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            <li>· Nepali (native)</li>
+            <li>· English (fluent)</li>
+            <li>· Hindi (conversational)</li>
+            <li>· A little Japanese & Spanish</li>
+          </ul>
+        </div>
+        <div className="bg-card rounded-3xl p-8 shadow-soft border border-border/50">
+          <MapPin className="h-8 w-8 text-accent mb-4" />
+          <h3 className="font-display text-2xl mb-3">Favorite spots</h3>
+          <ul className="space-y-2 text-muted-foreground text-sm">
+            <li>· Pumdikot at sunrise</li>
+            <li>· Old Bazaar tea shops</li>
+            <li>· The quiet end of Phewa Lake</li>
+            <li>· Begnas in the early morning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section className="py-20 bg-gradient-hero text-primary-foreground">
+      <div className="container max-w-3xl text-center">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent mb-4">Philosophy</p>
+        <h2 className="font-display text-4xl md:text-5xl font-medium leading-tight">
+          "Travel slower. Talk to people. Eat where the locals eat. And never be too proud to get a little lost."
+        </h2>
+      </div>
+    </section>
+
+    <section className="py-20">
+      <div className="container grid grid-cols-2 md:grid-cols-3 gap-3">
+        {[gNature, gCulture, gLakeside].map((src, i) => (
+          <div key={i} className="aspect-square rounded-2xl overflow-hidden">
+            <img src={src} alt="" loading="lazy" className="h-full w-full object-cover" />
+          </div>
+        ))}
+      </div>
+    </section>
+  </Layout>
+);
 
 export default About;

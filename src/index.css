@@ -4,127 +4,116 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 220 25% 12%;
+    /* Your Pokhara Friend — light theme */
+    --background: 36 33% 97%;          /* warm cream */
+    --foreground: 215 35% 12%;         /* deep mountain ink */
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card-foreground: 215 35% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover-foreground: 215 35% 12%;
 
-    --primary: 204 67% 64%;
-    --primary-foreground: 0 0% 100%;
-    --primary-glow: 204 80% 75%;
+    --primary: 212 60% 22%;            /* deep mountain blue */
+    --primary-foreground: 36 33% 97%;
+    --primary-glow: 212 55% 35%;
 
-    --secondary: 138 55% 36%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 142 32% 28%;          /* forest green */
+    --secondary-foreground: 36 33% 97%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --accent: 22 90% 58%;              /* sunset orange */
+    --accent-foreground: 0 0% 100%;
 
-    --accent: 204 67% 95%;
-    --accent-foreground: 220 25% 12%;
+    --beige: 32 38% 88%;               /* warm earthy beige */
+    --beige-foreground: 215 35% 12%;
 
-    --destructive: 0 84.2% 60.2%;
+    --muted: 32 25% 92%;
+    --muted-foreground: 215 15% 38%;
+
+    --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 204 67% 64%;
+    --border: 32 20% 86%;
+    --input: 32 20% 86%;
+    --ring: 212 60% 22%;
 
-    --radius: 0.75rem;
+    --radius: 1.25rem;
 
-    --gradient-hero: linear-gradient(135deg, hsl(204 67% 64%) 0%, hsl(138 55% 46%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(40 20% 98%) 0%, hsl(204 67% 97%) 100%);
-    --gradient-text: linear-gradient(135deg, hsl(204 67% 50%) 0%, hsl(138 55% 36%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(212 60% 22%) 0%, hsl(142 32% 28%) 100%);
+    --gradient-sunset: linear-gradient(135deg, hsl(22 90% 58%) 0%, hsl(14 85% 50%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(36 33% 97%) 0%, hsl(32 38% 92%) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(215 35% 8% / 0) 0%, hsl(215 35% 8% / 0.75) 100%);
 
-    --shadow-soft: 0 2px 20px -4px hsl(204 67% 64% / 0.12);
-    --shadow-card: 0 4px 24px -8px hsl(220 25% 12% / 0.08);
-    --shadow-elevated: 0 20px 60px -20px hsl(204 67% 64% / 0.25);
+    --shadow-soft: 0 4px 24px -8px hsl(215 35% 12% / 0.08);
+    --shadow-card: 0 10px 40px -12px hsl(215 35% 12% / 0.15);
+    --shadow-elevated: 0 24px 60px -20px hsl(215 35% 12% / 0.25);
+    --shadow-glow: 0 0 60px hsl(22 90% 58% / 0.35);
 
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .dark {
-    --background: 220 25% 8%;
-    --foreground: 40 20% 98%;
-    --card: 220 25% 10%;
-    --card-foreground: 40 20% 98%;
-    --popover: 220 25% 10%;
-    --popover-foreground: 40 20% 98%;
-    --primary: 204 67% 64%;
-    --primary-foreground: 220 25% 8%;
-    --secondary: 138 55% 46%;
-    --secondary-foreground: 220 25% 8%;
-    --muted: 220 25% 15%;
-    --muted-foreground: 220 10% 65%;
-    --accent: 220 25% 15%;
-    --accent-foreground: 40 20% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 40 20% 98%;
-    --border: 220 25% 18%;
-    --input: 220 25% 18%;
-    --ring: 204 67% 64%;
+    --background: 215 40% 7%;
+    --foreground: 36 30% 95%;
+    --card: 215 35% 10%;
+    --card-foreground: 36 30% 95%;
+    --popover: 215 35% 10%;
+    --popover-foreground: 36 30% 95%;
+    --primary: 204 75% 65%;
+    --primary-foreground: 215 40% 7%;
+    --primary-glow: 204 80% 75%;
+    --secondary: 142 35% 45%;
+    --secondary-foreground: 215 40% 7%;
+    --accent: 22 90% 60%;
+    --accent-foreground: 0 0% 100%;
+    --beige: 32 20% 22%;
+    --beige-foreground: 36 30% 95%;
+    --muted: 215 30% 15%;
+    --muted-foreground: 36 15% 65%;
+    --border: 215 30% 18%;
+    --input: 215 30% 18%;
+    --ring: 22 90% 60%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
   body {
     @apply bg-background text-foreground font-body antialiased;
+    font-feature-settings: "ss01", "cv11";
   }
-
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
+  ::selection { @apply bg-accent/30 text-foreground; }
 }
 
 @layer utilities {
-  .text-gradient {
-    background: var(--gradient-text);
+  .text-gradient-sunset {
+    background: var(--gradient-sunset);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+  .bg-gradient-hero { background: var(--gradient-hero); }
+  .bg-gradient-sunset { background: var(--gradient-sunset); }
+  .bg-gradient-subtle { background: var(--gradient-subtle); }
+  .bg-gradient-overlay { background: var(--gradient-overlay); }
 
-  .bg-gradient-hero {
-    background: var(--gradient-hero);
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+
+  .transition-smooth { transition: var(--transition-smooth); }
+
+  .glass {
+    @apply bg-background/60 backdrop-blur-xl border border-white/30;
   }
-
-  .bg-gradient-subtle {
-    background: var(--gradient-subtle);
-  }
-
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
-  }
-
-  .shadow-card {
-    box-shadow: var(--shadow-card);
-  }
-
-  .shadow-elevated {
-    box-shadow: var(--shadow-elevated);
-  }
-
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  .glass-dark {
+    background: hsl(215 35% 12% / 0.4);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.12);
   }
 }
