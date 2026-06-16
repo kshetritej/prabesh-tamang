@@ -1,16 +1,16 @@
 import { Link, NavLink as RouterNavLink, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Mountain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import logo from "@/assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
+  { to: "/experiences", label: "Experiences" },
   { to: "/gallery", label: "Gallery" },
-  { to: "/blogs", label: "Blogs" },
+  { to: "/blog", label: "Blog" },
+  { to: "/faqs", label: "FAQs" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -28,19 +28,33 @@ const Navbar = () => {
 
   useEffect(() => setOpen(false), [location.pathname]);
 
+  const isHome = location.pathname === "/";
+  const transparent = isHome && !scrolled;
+
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 w-full transition-smooth",
-        scrolled ? "bg-background/80 backdrop-blur-lg border-b border-border" : "bg-transparent"
+        "fixed top-0 z-50 w-full transition-smooth",
+        transparent
+          ? "bg-transparent"
+          : "bg-background/70 backdrop-blur-xl border-b border-border/60"
       )}
     >
-      <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center" aria-label="Prabesh Tamang">
-          <img src={logo} alt="Prabesh Tamang logo" className="h-12 w-12" />
+      <div className="container flex h-20 items-center justify-between">
+        <Link
+          to="/"
+          className={cn(
+            "flex items-center gap-2 font-display text-lg font-semibold tracking-tight transition-smooth",
+            transparent ? "text-white" : "text-foreground"
+          )}
+          aria-label="Your Pokhara Friend home"
+        >
+          <Mountain className="h-6 w-6" />
+          <span className="hidden sm:inline">Your Pokhara Friend</span>
+          <span className="sm:hidden">YPF</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {links.map((l) => (
             <RouterNavLink
               key={l.to}
@@ -48,8 +62,9 @@ const Navbar = () => {
               end={l.to === "/"}
               className={({ isActive }) =>
                 cn(
-                  "text-sm font-medium transition-smooth hover:text-primary",
-                  isActive ? "text-primary" : "text-muted-foreground"
+                  "text-sm font-medium transition-smooth hover:opacity-100",
+                  transparent ? "text-white/85 hover:text-white" : "text-foreground/70 hover:text-foreground",
+                  isActive && (transparent ? "text-white" : "text-foreground")
                 )
               }
             >
@@ -58,23 +73,23 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button asChild variant="hero" size="sm">
-            <Link to="/contact">Get in Touch</Link>
+        <div className="hidden lg:block">
+          <Button asChild size="sm" className="rounded-full bg-accent text-accent-foreground hover:bg-accent/90 px-5">
+            <Link to="/contact">Say Hello</Link>
           </Button>
         </div>
 
         <button
-          className="md:hidden p-2 -mr-2"
+          className={cn("lg:hidden p-2 -mr-2", transparent ? "text-white" : "text-foreground")}
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background">
+        <div className="lg:hidden border-t border-border bg-background">
           <nav className="container flex flex-col gap-1 py-4">
             {links.map((l) => (
               <RouterNavLink
@@ -83,16 +98,16 @@ const Navbar = () => {
                 end={l.to === "/"}
                 className={({ isActive }) =>
                   cn(
-                    "py-2 text-sm font-medium",
-                    isActive ? "text-primary" : "text-foreground"
+                    "py-3 text-base font-medium border-b border-border/40 last:border-0",
+                    isActive ? "text-accent" : "text-foreground"
                   )
                 }
               >
                 {l.label}
               </RouterNavLink>
             ))}
-            <Button asChild variant="hero" size="sm" className="mt-2 w-fit">
-              <Link to="/contact">Get in Touch</Link>
+            <Button asChild className="mt-3 rounded-full bg-accent text-accent-foreground">
+              <Link to="/contact">Say Hello</Link>
             </Button>
           </nav>
         </div>
